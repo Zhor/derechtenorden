@@ -299,6 +299,8 @@
             this.label97 = new System.Windows.Forms.Label();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.groupBox26 = new System.Windows.Forms.GroupBox();
+            this.koch_Lvl = new System.Windows.Forms.ComboBox();
+            this.label114 = new System.Windows.Forms.Label();
             this.cook_SuppenkochLvl = new System.Windows.Forms.ComboBox();
             this.label102 = new System.Windows.Forms.Label();
             this.cook_PastetenkochLvl = new System.Windows.Forms.ComboBox();
@@ -317,16 +319,14 @@
             this.label109 = new System.Windows.Forms.Label();
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.groupBox29 = new System.Windows.Forms.GroupBox();
-            this.animal_ReittierLvl = new System.Windows.Forms.ComboBox();
+            this.hirteLvl = new System.Windows.Forms.ComboBox();
             this.label110 = new System.Windows.Forms.Label();
             this.groupBox27 = new System.Windows.Forms.GroupBox();
-            this.animal_HirteLvl = new System.Windows.Forms.ComboBox();
+            this.nutzpflanzenbauerLvl = new System.Windows.Forms.ComboBox();
             this.label117 = new System.Windows.Forms.Label();
             this.groupBox28 = new System.Windows.Forms.GroupBox();
-            this.animal_ErnterLvl = new System.Windows.Forms.ComboBox();
+            this.kraut_ErnterLvl = new System.Windows.Forms.ComboBox();
             this.label118 = new System.Windows.Forms.Label();
-            this.koch_Lvl = new System.Windows.Forms.ComboBox();
-            this.label114 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -1248,7 +1248,7 @@
             "Heiligenstab",
             "Geheimstab",
             "Froststab",
-            "Verfluchter Stab"});
+            "VerfluchterStab"});
             this.equip_weaponName.Location = new System.Drawing.Point(102, 20);
             this.equip_weaponName.Name = "equip_weaponName";
             this.equip_weaponName.Size = new System.Drawing.Size(250, 21);
@@ -1377,7 +1377,7 @@
             // 
             this.equip_offHandName.FormattingEnabled = true;
             this.equip_offHandName.Items.AddRange(new object[] {
-            "",
+            "---",
             "Schild",
             "Fackel",
             "Buch"});
@@ -2789,10 +2789,10 @@
             this.tabPage4.Controls.Add(this.groupBox9);
             this.tabPage4.Controls.Add(this.groupBox8);
             this.tabPage4.Controls.Add(this.groupBox7);
-            this.tabPage4.Location = new System.Drawing.Point(4, 58);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(448, 775);
+            this.tabPage4.Size = new System.Drawing.Size(448, 811);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Crafting Kriegerwaffen";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -5400,10 +5400,10 @@
             this.tabPage5.Controls.Add(this.groupBox14);
             this.tabPage5.Controls.Add(this.groupBox15);
             this.tabPage5.Controls.Add(this.groupBox16);
-            this.tabPage5.Location = new System.Drawing.Point(4, 58);
+            this.tabPage5.Location = new System.Drawing.Point(4, 40);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(448, 775);
+            this.tabPage5.Size = new System.Drawing.Size(448, 793);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Crafting Jägerwaffen";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -8011,10 +8011,10 @@
             this.tabPage6.Controls.Add(this.groupBox19);
             this.tabPage6.Controls.Add(this.groupBox20);
             this.tabPage6.Controls.Add(this.groupBox21);
-            this.tabPage6.Location = new System.Drawing.Point(4, 58);
+            this.tabPage6.Location = new System.Drawing.Point(4, 40);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(448, 775);
+            this.tabPage6.Size = new System.Drawing.Size(448, 793);
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Crafting Magierwaffen";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -10618,10 +10618,10 @@
             // 
             this.tabPage7.Controls.Add(this.groupBox23);
             this.tabPage7.Controls.Add(this.groupBox22);
-            this.tabPage7.Location = new System.Drawing.Point(4, 58);
+            this.tabPage7.Location = new System.Drawing.Point(4, 40);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(448, 775);
+            this.tabPage7.Size = new System.Drawing.Size(448, 793);
             this.tabPage7.TabIndex = 6;
             this.tabPage7.Text = "Crafting Werkzeug & Accessoire";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -12760,6 +12760,125 @@
             this.groupBox26.TabStop = false;
             this.groupBox26.Text = "Koch";
             // 
+            // koch_Lvl
+            // 
+            this.koch_Lvl.FormattingEnabled = true;
+            this.koch_Lvl.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58",
+            "59",
+            "60",
+            "61",
+            "62",
+            "63",
+            "64",
+            "65",
+            "66",
+            "67",
+            "68",
+            "69",
+            "70",
+            "71",
+            "72",
+            "73",
+            "74",
+            "75",
+            "76",
+            "77",
+            "78",
+            "79",
+            "80",
+            "81",
+            "82",
+            "83",
+            "84",
+            "85",
+            "86",
+            "87",
+            "88",
+            "89",
+            "90",
+            "91",
+            "92",
+            "93",
+            "94",
+            "95",
+            "96",
+            "97",
+            "98",
+            "99",
+            "100"});
+            this.koch_Lvl.Location = new System.Drawing.Point(358, 13);
+            this.koch_Lvl.Name = "koch_Lvl";
+            this.koch_Lvl.Size = new System.Drawing.Size(71, 21);
+            this.koch_Lvl.TabIndex = 27;
+            // 
+            // label114
+            // 
+            this.label114.AutoSize = true;
+            this.label114.Location = new System.Drawing.Point(7, 21);
+            this.label114.Name = "label114";
+            this.label114.Size = new System.Drawing.Size(32, 13);
+            this.label114.TabIndex = 26;
+            this.label114.Text = "Stufe";
+            // 
             // cook_SuppenkochLvl
             // 
             this.cook_SuppenkochLvl.FormattingEnabled = true;
@@ -13722,24 +13841,24 @@
             this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage10.Size = new System.Drawing.Size(448, 775);
             this.tabPage10.TabIndex = 9;
-            this.tabPage10.Text = "Nutz- und Reittiere";
+            this.tabPage10.Text = "Ernter";
             this.tabPage10.UseVisualStyleBackColor = true;
             // 
             // groupBox29
             // 
-            this.groupBox29.Controls.Add(this.animal_ReittierLvl);
+            this.groupBox29.Controls.Add(this.hirteLvl);
             this.groupBox29.Controls.Add(this.label110);
             this.groupBox29.Location = new System.Drawing.Point(7, 122);
             this.groupBox29.Name = "groupBox29";
             this.groupBox29.Size = new System.Drawing.Size(436, 53);
             this.groupBox29.TabIndex = 15;
             this.groupBox29.TabStop = false;
-            this.groupBox29.Text = "Reittierausbilder";
+            this.groupBox29.Text = "Hirte";
             // 
-            // animal_ReittierLvl
+            // hirteLvl
             // 
-            this.animal_ReittierLvl.FormattingEnabled = true;
-            this.animal_ReittierLvl.Items.AddRange(new object[] {
+            this.hirteLvl.FormattingEnabled = true;
+            this.hirteLvl.Items.AddRange(new object[] {
             "0",
             "1",
             "2",
@@ -13841,10 +13960,10 @@
             "98",
             "99",
             "100"});
-            this.animal_ReittierLvl.Location = new System.Drawing.Point(358, 20);
-            this.animal_ReittierLvl.Name = "animal_ReittierLvl";
-            this.animal_ReittierLvl.Size = new System.Drawing.Size(71, 21);
-            this.animal_ReittierLvl.TabIndex = 14;
+            this.hirteLvl.Location = new System.Drawing.Point(358, 20);
+            this.hirteLvl.Name = "hirteLvl";
+            this.hirteLvl.Size = new System.Drawing.Size(71, 21);
+            this.hirteLvl.TabIndex = 14;
             // 
             // label110
             // 
@@ -13857,19 +13976,19 @@
             // 
             // groupBox27
             // 
-            this.groupBox27.Controls.Add(this.animal_HirteLvl);
+            this.groupBox27.Controls.Add(this.nutzpflanzenbauerLvl);
             this.groupBox27.Controls.Add(this.label117);
             this.groupBox27.Location = new System.Drawing.Point(7, 63);
             this.groupBox27.Name = "groupBox27";
             this.groupBox27.Size = new System.Drawing.Size(436, 53);
             this.groupBox27.TabIndex = 7;
             this.groupBox27.TabStop = false;
-            this.groupBox27.Text = "Hirte";
+            this.groupBox27.Text = "Nutzpflanzenbauer";
             // 
-            // animal_HirteLvl
+            // nutzpflanzenbauerLvl
             // 
-            this.animal_HirteLvl.FormattingEnabled = true;
-            this.animal_HirteLvl.Items.AddRange(new object[] {
+            this.nutzpflanzenbauerLvl.FormattingEnabled = true;
+            this.nutzpflanzenbauerLvl.Items.AddRange(new object[] {
             "0",
             "1",
             "2",
@@ -13971,10 +14090,10 @@
             "98",
             "99",
             "100"});
-            this.animal_HirteLvl.Location = new System.Drawing.Point(358, 20);
-            this.animal_HirteLvl.Name = "animal_HirteLvl";
-            this.animal_HirteLvl.Size = new System.Drawing.Size(71, 21);
-            this.animal_HirteLvl.TabIndex = 14;
+            this.nutzpflanzenbauerLvl.Location = new System.Drawing.Point(358, 20);
+            this.nutzpflanzenbauerLvl.Name = "nutzpflanzenbauerLvl";
+            this.nutzpflanzenbauerLvl.Size = new System.Drawing.Size(71, 21);
+            this.nutzpflanzenbauerLvl.TabIndex = 14;
             // 
             // label117
             // 
@@ -13987,19 +14106,19 @@
             // 
             // groupBox28
             // 
-            this.groupBox28.Controls.Add(this.animal_ErnterLvl);
+            this.groupBox28.Controls.Add(this.kraut_ErnterLvl);
             this.groupBox28.Controls.Add(this.label118);
             this.groupBox28.Location = new System.Drawing.Point(7, 6);
             this.groupBox28.Name = "groupBox28";
             this.groupBox28.Size = new System.Drawing.Size(436, 51);
             this.groupBox28.TabIndex = 6;
             this.groupBox28.TabStop = false;
-            this.groupBox28.Text = "Ernter";
+            this.groupBox28.Text = "Kräuterarzt";
             // 
-            // animal_ErnterLvl
+            // kraut_ErnterLvl
             // 
-            this.animal_ErnterLvl.FormattingEnabled = true;
-            this.animal_ErnterLvl.Items.AddRange(new object[] {
+            this.kraut_ErnterLvl.FormattingEnabled = true;
+            this.kraut_ErnterLvl.Items.AddRange(new object[] {
             "0",
             "1",
             "2",
@@ -14101,10 +14220,10 @@
             "98",
             "99",
             "100"});
-            this.animal_ErnterLvl.Location = new System.Drawing.Point(358, 20);
-            this.animal_ErnterLvl.Name = "animal_ErnterLvl";
-            this.animal_ErnterLvl.Size = new System.Drawing.Size(71, 21);
-            this.animal_ErnterLvl.TabIndex = 14;
+            this.kraut_ErnterLvl.Location = new System.Drawing.Point(358, 20);
+            this.kraut_ErnterLvl.Name = "kraut_ErnterLvl";
+            this.kraut_ErnterLvl.Size = new System.Drawing.Size(71, 21);
+            this.kraut_ErnterLvl.TabIndex = 14;
             // 
             // label118
             // 
@@ -14114,125 +14233,6 @@
             this.label118.Size = new System.Drawing.Size(32, 13);
             this.label118.TabIndex = 0;
             this.label118.Text = "Stufe";
-            // 
-            // koch_Lvl
-            // 
-            this.koch_Lvl.FormattingEnabled = true;
-            this.koch_Lvl.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21",
-            "22",
-            "23",
-            "24",
-            "25",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30",
-            "31",
-            "32",
-            "33",
-            "34",
-            "35",
-            "36",
-            "37",
-            "38",
-            "39",
-            "40",
-            "41",
-            "42",
-            "43",
-            "44",
-            "45",
-            "46",
-            "47",
-            "48",
-            "49",
-            "50",
-            "51",
-            "52",
-            "53",
-            "54",
-            "55",
-            "56",
-            "57",
-            "58",
-            "59",
-            "60",
-            "61",
-            "62",
-            "63",
-            "64",
-            "65",
-            "66",
-            "67",
-            "68",
-            "69",
-            "70",
-            "71",
-            "72",
-            "73",
-            "74",
-            "75",
-            "76",
-            "77",
-            "78",
-            "79",
-            "80",
-            "81",
-            "82",
-            "83",
-            "84",
-            "85",
-            "86",
-            "87",
-            "88",
-            "89",
-            "90",
-            "91",
-            "92",
-            "93",
-            "94",
-            "95",
-            "96",
-            "97",
-            "98",
-            "99",
-            "100"});
-            this.koch_Lvl.Location = new System.Drawing.Point(358, 13);
-            this.koch_Lvl.Name = "koch_Lvl";
-            this.koch_Lvl.Size = new System.Drawing.Size(71, 21);
-            this.koch_Lvl.TabIndex = 27;
-            // 
-            // label114
-            // 
-            this.label114.AutoSize = true;
-            this.label114.Location = new System.Drawing.Point(7, 21);
-            this.label114.Name = "label114";
-            this.label114.Size = new System.Drawing.Size(32, 13);
-            this.label114.TabIndex = 26;
-            this.label114.Text = "Stufe";
             // 
             // Form3
             // 
@@ -14600,13 +14600,13 @@
         private System.Windows.Forms.Label label108;
         private System.Windows.Forms.Label label109;
         private System.Windows.Forms.GroupBox groupBox27;
-        private System.Windows.Forms.ComboBox animal_HirteLvl;
+        private System.Windows.Forms.ComboBox nutzpflanzenbauerLvl;
         private System.Windows.Forms.Label label117;
         private System.Windows.Forms.GroupBox groupBox28;
-        private System.Windows.Forms.ComboBox animal_ErnterLvl;
+        private System.Windows.Forms.ComboBox kraut_ErnterLvl;
         private System.Windows.Forms.Label label118;
         private System.Windows.Forms.GroupBox groupBox29;
-        private System.Windows.Forms.ComboBox animal_ReittierLvl;
+        private System.Windows.Forms.ComboBox hirteLvl;
         private System.Windows.Forms.Label label110;
         private System.Windows.Forms.GroupBox groupBox30;
         private System.Windows.Forms.CheckBox cB_Support;

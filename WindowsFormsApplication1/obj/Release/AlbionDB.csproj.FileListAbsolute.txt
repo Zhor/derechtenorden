@@ -1,0 +1,12 @@
+E:\Privat\Privat\Daddelei\VisualStudioWorkspace\Server\WindowsFormsApplication1\derechtenorden\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.Form1.resources
+E:\Privat\Privat\Daddelei\VisualStudioWorkspace\Server\WindowsFormsApplication1\derechtenorden\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.Form2.resources
+E:\Privat\Privat\Daddelei\VisualStudioWorkspace\Server\WindowsFormsApplication1\derechtenorden\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.Form3.resources
+E:\Privat\Privat\Daddelei\VisualStudioWorkspace\Server\WindowsFormsApplication1\derechtenorden\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.Form4.resources
+E:\Privat\Privat\Daddelei\VisualStudioWorkspace\Server\WindowsFormsApplication1\derechtenorden\WindowsFormsApplication1\obj\Release\WindowsFormsApplication1.ServerStatusForm.resources
+E:\Privat\Privat\Daddelei\VisualStudioWorkspace\Server\WindowsFormsApplication1\derechtenorden\WindowsFormsApplication1\obj\Release\AlbionDB.csproj.GenerateResource.Cache
+E:\Privat\Privat\Daddelei\VisualStudioWorkspace\Server\WindowsFormsApplication1\derechtenorden\WindowsFormsApplication1\bin\Release\AlbionAdmin.exe.config
+E:\Privat\Privat\Daddelei\VisualStudioWorkspace\Server\WindowsFormsApplication1\derechtenorden\WindowsFormsApplication1\bin\Release\AlbionAdmin.exe
+E:\Privat\Privat\Daddelei\VisualStudioWorkspace\Server\WindowsFormsApplication1\derechtenorden\WindowsFormsApplication1\bin\Release\AlbionAdmin.pdb
+E:\Privat\Privat\Daddelei\VisualStudioWorkspace\Server\WindowsFormsApplication1\derechtenorden\WindowsFormsApplication1\obj\Release\AlbionAdmin.Properties.Resources.resources
+E:\Privat\Privat\Daddelei\VisualStudioWorkspace\Server\WindowsFormsApplication1\derechtenorden\WindowsFormsApplication1\obj\Release\AlbionAdmin.exe
+E:\Privat\Privat\Daddelei\VisualStudioWorkspace\Server\WindowsFormsApplication1\derechtenorden\WindowsFormsApplication1\obj\Release\AlbionAdmin.pdb

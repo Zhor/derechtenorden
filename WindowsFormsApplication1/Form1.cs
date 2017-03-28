@@ -27,7 +27,7 @@ namespace WindowsFormsApplication1
             globalVariable.name = textBox1.Text;
 
             MySqlConnection connectDB = new MySqlConnection(connection);
-            MySqlCommand cmdSelectName = new MySqlCommand("select * from player where playername=" + globalVariable.name + ";", connectDB);
+            MySqlCommand cmdSelectName = new MySqlCommand("select playername from albionprogram.player where playername='" + globalVariable.name + "';", connectDB);
 
             MySqlCommand cmdInsertName = new MySqlCommand("insert into albionprogram.player (playername) values ('" + globalVariable.name + "');", connectDB);
             MySqlCommand cmdInsertName2 = new MySqlCommand("insert into albionprogram.playerattribute (attr_playername) values ('" + globalVariable.name + "');", connectDB);
@@ -39,36 +39,21 @@ namespace WindowsFormsApplication1
             MySqlCommand cmdInsertName8 = new MySqlCommand("insert into albionprogram.craftingtools (craftingtools_playername) values ('" + globalVariable.name + "');", connectDB);
             MySqlCommand cmdInsertName9 = new MySqlCommand("insert into albionprogram.playerfarming (farm_playername) values ('" + globalVariable.name + "');", connectDB);
 
+            /*
             string lnPlayer = "SELECT playername FROM DB2885876.player where playername ='" + globalVariable.name + "';";
 
             MySqlCommand logPlayer = new MySqlCommand(lnPlayer, connectDB);
-
+            */
             try
             {
                 connectDB.Open();
-                string resultPlayer = "";
-                try
-                {
-                    resultPlayer = logPlayer.ExecuteScalar().ToString();
-                }
-                catch
+
+                String lnPlayer = cmdSelectName.ExecuteScalar().ToString();
+
+                if (lnPlayer.Equals(globalVariable.name))
                 {
 
-                }
-                
-
-                if (resultPlayer=="" && textBox1.Text!="")
-                {
-
-                    cmdInsertName.ExecuteNonQueryAsync();
-                    cmdInsertName2.ExecuteNonQueryAsync();
-                    cmdInsertName3.ExecuteNonQueryAsync();
-                    cmdInsertName4.ExecuteNonQueryAsync();
-                    cmdInsertName5.ExecuteNonQueryAsync();
-                    cmdInsertName6.ExecuteNonQueryAsync();
-                    cmdInsertName7.ExecuteNonQueryAsync();
-                    cmdInsertName8.ExecuteNonQueryAsync();
-                    cmdInsertName9.ExecuteNonQueryAsync();
+                    
 
                     /*
                     cmdInsertName.ExecuteNonQueryAsync();
@@ -120,7 +105,7 @@ namespace WindowsFormsApplication1
                         label2.Text = "...";
                     }
                     */
-                    MessageBox.Show("Spieler " + textBox1.Text + " hinzugefügt!");
+                    MessageBox.Show("Willkommen " + textBox1.Text);
                 }
                 connectDB.Close();
             }
@@ -132,8 +117,21 @@ namespace WindowsFormsApplication1
             }
             catch (Exception exc)
             {
-                MessageBox.Show("" + exc.Message);
-                this.Close();
+
+                cmdInsertName.ExecuteNonQueryAsync();
+                cmdInsertName2.ExecuteNonQueryAsync();
+                cmdInsertName3.ExecuteNonQueryAsync();
+                cmdInsertName4.ExecuteNonQueryAsync();
+                cmdInsertName5.ExecuteNonQueryAsync();
+                cmdInsertName6.ExecuteNonQueryAsync();
+                cmdInsertName7.ExecuteNonQueryAsync();
+                cmdInsertName8.ExecuteNonQueryAsync();
+                cmdInsertName9.ExecuteNonQueryAsync();
+
+                MessageBox.Show("Spieler " + textBox1.Text + " hinzugefügt!");
+
+                //MessageBox.Show("" + exc.Message);
+                //this.Close();
             }
 
             globalVariable.name = textBox1.Text;

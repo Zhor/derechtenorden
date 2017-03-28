@@ -221,7 +221,7 @@ namespace WindowsFormsApplication1
                     dataGridView1.DataSource = bindingsSource1;
 
                     GetData("select farm_playername as Name, " +
-                                   "kraeuterarztstufe as 'Stufe Alchimist', " +
+                                   "alchimiststufe as 'Stufe Alchimist', " +
                                    "schmuggler as Schmuggler, " +
                                    "reinigungsbrauer as Reinigungsbrauer, " +
                                    "abklingzeitbrauer as Abklingzeitbrauer, " +
@@ -239,9 +239,9 @@ namespace WindowsFormsApplication1
                                    "omelettkoch as Omelettkoch, " +
                                    "salatkoch as Salatkoch, " +
                                    "suppenkoch as Suppenkoch, " +
-                                   "ernterstufe as 'Stufe Ernter', " +
-                                   "hirtestufe as 'Stufe Hirte', " +
-                                   "reitierausbilderstufe as 'Stufe Reitierausbilder' " +
+                                   "kraeuterarztstufe as 'Stufe Kräuterarzt', " +
+                                   "nutzpflanzenbauer as 'Stufe Nutzpflanzenbauer', " +
+                                   "hirte as 'Stufe Hirte' " +
                                    "from albionprogram.playerfarming;");
                     break;
                 default:

@@ -196,12 +196,12 @@ namespace WindowsFormsApplication1
             cook_MetzgereiLvl.SelectedIndex = 0;
             cook_MuellerLvl.SelectedIndex = 0;
             cook_SandwichkochLvl.SelectedIndex = 0;
-            animal_ReittierLvl.SelectedIndex = 0;
+            hirteLvl.SelectedIndex = 0;
             warrior_SchildschmiedLvl.SelectedIndex = 0;
             hunter_FackelschmiedLvl.SelectedIndex = 0;
             mage_buchbinderLvl.SelectedIndex = 0;
-            animal_HirteLvl.SelectedIndex = 0;
-            animal_ErnterLvl.SelectedIndex = 0;
+            nutzpflanzenbauerLvl.SelectedIndex = 0;
+            kraut_ErnterLvl.SelectedIndex = 0;
 
         }
         #endregion
@@ -324,6 +324,7 @@ namespace WindowsFormsApplication1
             alchi_SteinhautbrauerLvl.DropDownStyle = ComboBoxStyle.DropDownList;
             alchi_WiederbelebungsbrauerLvl.DropDownStyle = ComboBoxStyle.DropDownList;
             alchi_EnergiebrauerLvl.DropDownStyle = ComboBoxStyle.DropDownList;
+            koch_Lvl.DropDownStyle = ComboBoxStyle.DropDownList;
             cook_SuppenkochLvl.DropDownStyle = ComboBoxStyle.DropDownList;
             cook_PastetenkochLvl.DropDownStyle = ComboBoxStyle.DropDownList;
             cook_OmelettKochLvl.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -332,12 +333,12 @@ namespace WindowsFormsApplication1
             cook_MetzgereiLvl.DropDownStyle = ComboBoxStyle.DropDownList;
             cook_MuellerLvl.DropDownStyle = ComboBoxStyle.DropDownList;
             cook_SandwichkochLvl.DropDownStyle = ComboBoxStyle.DropDownList;
-            animal_ReittierLvl.DropDownStyle = ComboBoxStyle.DropDownList;
+            hirteLvl.DropDownStyle = ComboBoxStyle.DropDownList;
             warrior_SchildschmiedLvl.DropDownStyle = ComboBoxStyle.DropDownList;
             hunter_FackelschmiedLvl.DropDownStyle = ComboBoxStyle.DropDownList;
             mage_buchbinderLvl.DropDownStyle = ComboBoxStyle.DropDownList;
-            animal_HirteLvl.DropDownStyle = ComboBoxStyle.DropDownList;
-            animal_ErnterLvl.DropDownStyle = ComboBoxStyle.DropDownList;
+            nutzpflanzenbauerLvl.DropDownStyle = ComboBoxStyle.DropDownList;
+            kraut_ErnterLvl.DropDownStyle = ComboBoxStyle.DropDownList;
         }
         #endregion
 
@@ -365,7 +366,7 @@ namespace WindowsFormsApplication1
              MySqlCommand cmdUpdateSingleHeal = new MySqlCommand("update albionprogram.playerattribute set attr_singleheal = 'X' where attr_playername ='" + globalVariable.name + "';", connectDB);
              MySqlCommand cmdUpdateAoeHeal = new MySqlCommand("update albionprogram.playerattribute set attr_aoeheal = 'X' where attr_playername ='" + globalVariable.name + "';", connectDB);
              */
-            updatefunction(tabControl1.TabIndex);
+            updatefunction(tabControl1.SelectedIndex);
 
             connectDB.Close();
             this.Close();
@@ -378,16 +379,16 @@ namespace WindowsFormsApplication1
                 //Gathering & Refining
                 case 0:
                     #region gathering
-                    new MySqlCommand("update albionprogram.playergathering set erz ='" + Convert.ToUInt16(gath_erzLvl.SelectedItem) + "' where gath_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.playergathering set holz ='" + Convert.ToUInt16(gath_holzLvl.SelectedItem) + "' where gath_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.playergathering set wolle ='" + Convert.ToUInt16(gath_wolleLvl.SelectedItem) + "' where gath_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.playergathering set fell ='" + Convert.ToUInt16(gath_fellLvl.SelectedItem) + "' where gath_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.playergathering set stein ='" + Convert.ToUInt16(gath_steinLvl.SelectedItem) + "' where gath_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.playergathering set metall ='" + Convert.ToUInt16(refine_metallstangeLvl.SelectedItem) + "' where gath_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.playergathering set planke ='" + Convert.ToUInt16(refine_plankeLvl.SelectedItem) + "' where gath_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.playergathering set stoff ='" + Convert.ToUInt16(refine_stoffLvl.SelectedItem) + "' where gath_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.playergathering set leder ='" + Convert.ToUInt16(refine_lederLvl.SelectedItem) + "' where gath_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.playergathering set steinblock ='" + Convert.ToUInt16(refine_steinblockLvl.SelectedItem) + "' where gath_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.playergathering set erz ='" + Convert.ToInt32(gath_erzLvl.SelectedItem) + "' where gath_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.playergathering set holz ='" + Convert.ToInt32(gath_holzLvl.SelectedItem) + "' where gath_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.playergathering set wolle ='" + Convert.ToInt32(gath_wolleLvl.SelectedItem) + "' where gath_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.playergathering set fell ='" + Convert.ToInt32(gath_fellLvl.SelectedItem) + "' where gath_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.playergathering set stein ='" + Convert.ToInt32(gath_steinLvl.SelectedItem) + "' where gath_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.playergathering set metall ='" + Convert.ToInt32(refine_metallstangeLvl.SelectedItem) + "' where gath_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.playergathering set planke ='" + Convert.ToInt32(refine_plankeLvl.SelectedItem) + "' where gath_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.playergathering set stoff ='" + Convert.ToInt32(refine_stoffLvl.SelectedItem) + "' where gath_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.playergathering set leder ='" + Convert.ToInt32(refine_lederLvl.SelectedItem) + "' where gath_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.playergathering set steinblock ='" + Convert.ToInt32(refine_steinblockLvl.SelectedItem) + "' where gath_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
                     #endregion
 
                     break;
@@ -466,26 +467,26 @@ namespace WindowsFormsApplication1
                         new MySqlCommand("update albionprogram.playerattribute set attr_aoeheal = '-' where attr_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
                     }
 
-                    new MySqlCommand("update albionprogram.playerattribute set attr_waffe ='" + equip_weaponName.SelectedItem.ToString() + " ( t" + equip_weaponLvl.SelectedItem.ToString() + " )' where attr_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.playerattribute set attr_offhand ='" + equip_offHandName.SelectedItem.ToString() + " ( t" + equip_offHandLvl.SelectedItem.ToString() + " )' where attr_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.playerattribute set attr_kopf ='" + equip_headName.SelectedItem.ToString() + " ( t" + equip_headLvl.SelectedItem.ToString() + " )' where attr_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.playerattribute set attr_brust ='" + equip_chestName.SelectedItem.ToString() + " ( t" + equip_chestLvl.SelectedItem.ToString() + " )' where attr_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.playerattribute set attr_fuss ='" + equip_shoesName.SelectedItem.ToString() + " ( t" + equip_shoesLvl.SelectedItem.ToString() + " )' where attr_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.playerattribute set attr_waffe ='" + equip_weaponName.SelectedItem.ToString() + " t" + equip_weaponLvl.SelectedItem.ToString() + "' where attr_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.playerattribute set attr_offhand ='" + equip_offHandName.SelectedItem.ToString() + " t" + equip_offHandLvl.SelectedItem.ToString() + "' where attr_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.playerattribute set attr_kopf ='" + equip_headName.SelectedItem.ToString() + " t" + equip_headLvl.SelectedItem.ToString() + "' where attr_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.playerattribute set attr_brust ='" + equip_chestName.SelectedItem.ToString() + " t" + equip_chestLvl.SelectedItem.ToString() + "' where attr_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.playerattribute set attr_fuss ='" + equip_shoesName.SelectedItem.ToString() + " t" + equip_shoesLvl.SelectedItem.ToString() + "' where attr_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
 
                     break;
                 //Crafting Rüstung
                 case 2:
-                    new MySqlCommand("update albionprogram.craftingarmor set plattekopf ='" + craft_PlateHeadName.SelectedItem.ToString() + " ( t" + craft_PlateHeadLvl.SelectedItem.ToString() + " )' where craftarmor_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.craftingarmor set plattebrust ='" + craft_PlateChestName.SelectedItem.ToString() + " ( t" + craft_PlateChestLvl.SelectedItem.ToString() + " )' where craftarmor_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.craftingarmor set plattestiefel ='" + craft_PlateShoesName.SelectedItem.ToString() + " ( t" + craft_PlateShoesLvl.SelectedItem.ToString() + " )' where craftarmor_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.craftingarmor set plattekopf ='" + craft_PlateHeadName.SelectedItem.ToString() + " t" + craft_PlateHeadLvl.SelectedItem.ToString() + "' where craftarmor_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.craftingarmor set plattebrust ='" + craft_PlateChestName.SelectedItem.ToString() + " t" + craft_PlateChestLvl.SelectedItem.ToString() + "' where craftarmor_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.craftingarmor set plattestiefel ='" + craft_PlateShoesName.SelectedItem.ToString() + " t" + craft_PlateShoesLvl.SelectedItem.ToString() + "' where craftarmor_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
 
-                    new MySqlCommand("update albionprogram.craftingarmor set lederkopf ='" + craft_LeatherHeadName.SelectedItem.ToString() + " ( t" + craft_LeatherHeadLvl.SelectedItem.ToString() + " )' where craftarmor_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.craftingarmor set lederbrust ='" + craft_LeatherChestName.SelectedItem.ToString() + " ( t" + craft_LeatherChestLvl.SelectedItem.ToString() + " )' where craftarmor_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.craftingarmor set lederstiefel ='" + craft_LeatherShoesName.SelectedItem.ToString() + " ( t" + craft_LeatherShoesLvl.SelectedItem.ToString() + " )' where craftarmor_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.craftingarmor set lederkopf ='" + craft_LeatherHeadName.SelectedItem.ToString() + " t" + craft_LeatherHeadLvl.SelectedItem.ToString() + "' where craftarmor_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.craftingarmor set lederbrust ='" + craft_LeatherChestName.SelectedItem.ToString() + " t" + craft_LeatherChestLvl.SelectedItem.ToString() + "' where craftarmor_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.craftingarmor set lederstiefel ='" + craft_LeatherShoesName.SelectedItem.ToString() + " t" + craft_LeatherShoesLvl.SelectedItem.ToString() + "' where craftarmor_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
 
-                    new MySqlCommand("update albionprogram.craftingarmor set stoffkopf ='" + craft_ClothHeadName.SelectedItem.ToString() + " ( t" + craft_ClothHeadLvl.SelectedItem.ToString() + " )' where craftarmor_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.craftingarmor set stoffbrust ='" + craft_ClothChestName.SelectedItem.ToString() + " ( t" + craft_ClothChestLvl.SelectedItem.ToString() + " )' where craftarmor_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.craftingarmor set stoffstiefel ='" + craft_ClothShoesName.SelectedItem.ToString() + " ( t" + craft_ClothShoesLvl.SelectedItem.ToString() + " )' where craftarmor_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.craftingarmor set stoffkopf ='" + craft_ClothHeadName.SelectedItem.ToString() + " t" + craft_ClothHeadLvl.SelectedItem.ToString() + "' where craftarmor_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.craftingarmor set stoffbrust ='" + craft_ClothChestName.SelectedItem.ToString() + " t" + craft_ClothChestLvl.SelectedItem.ToString() + "' where craftarmor_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.craftingarmor set stoffstiefel ='" + craft_ClothShoesName.SelectedItem.ToString() + " t" + craft_ClothShoesLvl.SelectedItem.ToString() + "' where craftarmor_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
 
                     break;
                 //Crafting Kriegerwaffen
@@ -593,7 +594,7 @@ namespace WindowsFormsApplication1
                     break;
                 //Alchemist
                 case 7:
-                    new MySqlCommand("update albionprogram.playerfarming set kraeuterarztstufe ='" + alchi_Lvl.SelectedItem.ToString() + "' where farm_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.playerfarming set alchimiststufe ='" + alchi_Lvl.SelectedItem.ToString() + "' where farm_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
                     new MySqlCommand("update albionprogram.playerfarming set schmuggler ='" + alchi_schmugglerLvl.SelectedItem.ToString() + "' where farm_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
                     new MySqlCommand("update albionprogram.playerfarming set reinigungsbrauer ='" + alchi_reinigungsbrauerLvl.SelectedItem.ToString() + "' where farm_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
                     new MySqlCommand("update albionprogram.playerfarming set abklingzeitbrauer ='" + alchi_AbklingzeitbrauerLvl.SelectedItem.ToString() + "' where farm_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
@@ -606,6 +607,7 @@ namespace WindowsFormsApplication1
                     break;
                 //Koch
                 case 8:
+                    new MySqlCommand("update albionprogram.playerfarming set kochstufe ='" + koch_Lvl.SelectedItem.ToString() + "' where farm_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
                     new MySqlCommand("update albionprogram.playerfarming set metzgerei ='" + cook_MetzgereiLvl.SelectedItem.ToString() + "' where farm_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
                     new MySqlCommand("update albionprogram.playerfarming set mueller ='" + cook_MuellerLvl.SelectedItem.ToString() + "' where farm_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
                     new MySqlCommand("update albionprogram.playerfarming set sandwichkoch ='" + cook_SandwichkochLvl.SelectedItem.ToString() + "' where farm_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
@@ -618,9 +620,9 @@ namespace WindowsFormsApplication1
                     break;
                 //Nutz- & Reittiere
                 case 9:
-                    new MySqlCommand("update albionprogram.playerfarming set ernterstufe ='" + animal_ErnterLvl.SelectedItem.ToString() + "' where farm_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.playerfarming set hirtestufe ='" + animal_HirteLvl.SelectedItem.ToString() + "' where farm_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.playerfarming set reitierausbilderstufe ='" + animal_ReittierLvl.SelectedItem.ToString() + "' where farm_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.playerfarming set kraeuterarztstufe ='" + kraut_ErnterLvl.SelectedItem.ToString() + "' where farm_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.playerfarming set nutzpflanzenbauer ='" + nutzpflanzenbauerLvl.SelectedItem.ToString() + "' where farm_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.playerfarming set hirte ='" + hirteLvl.SelectedItem.ToString() + "' where farm_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
                     break;
                 default:
                     break;
@@ -634,16 +636,16 @@ namespace WindowsFormsApplication1
                 //Gathering & Refining
                 case 0:
                     #region gathering
-                    new MySqlCommand("update albionprogram.playergathering set erz ='" + Convert.ToUInt16(gath_erzLvl.SelectedItem) + "' where gath_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.playergathering set holz ='" + Convert.ToUInt16(gath_holzLvl.SelectedItem) + "' where gath_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.playergathering set wolle ='" + Convert.ToUInt16(gath_wolleLvl.SelectedItem) + "' where gath_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.playergathering set fell ='" + Convert.ToUInt16(gath_fellLvl.SelectedItem) + "' where gath_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.playergathering set stein ='" + Convert.ToUInt16(gath_steinLvl.SelectedItem) + "' where gath_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.playergathering set metall ='" + Convert.ToUInt16(refine_metallstangeLvl.SelectedItem) + "' where gath_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.playergathering set planke ='" + Convert.ToUInt16(refine_plankeLvl.SelectedItem) + "' where gath_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.playergathering set stoff ='" + Convert.ToUInt16(refine_stoffLvl.SelectedItem) + "' where gath_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.playergathering set leder ='" + Convert.ToUInt16(refine_lederLvl.SelectedItem) + "' where gath_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.playergathering set steinblock ='" + Convert.ToUInt16(refine_steinblockLvl.SelectedItem) + "' where gath_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.playergathering set erz ='" + Convert.ToInt32(gath_erzLvl.SelectedItem) + "' where gath_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.playergathering set holz ='" + Convert.ToInt32(gath_holzLvl.SelectedItem) + "' where gath_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.playergathering set wolle ='" + Convert.ToInt32(gath_wolleLvl.SelectedItem) + "' where gath_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.playergathering set fell ='" + Convert.ToInt32(gath_fellLvl.SelectedItem) + "' where gath_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.playergathering set stein ='" + Convert.ToInt32(gath_steinLvl.SelectedItem) + "' where gath_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.playergathering set metall ='" + Convert.ToInt32(refine_metallstangeLvl.SelectedItem) + "' where gath_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.playergathering set planke ='" + Convert.ToInt32(refine_plankeLvl.SelectedItem) + "' where gath_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.playergathering set stoff ='" + Convert.ToInt32(refine_stoffLvl.SelectedItem) + "' where gath_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.playergathering set leder ='" + Convert.ToInt32(refine_lederLvl.SelectedItem) + "' where gath_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.playergathering set steinblock ='" + Convert.ToInt32(refine_steinblockLvl.SelectedItem) + "' where gath_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
                     #endregion
 
                     break;
@@ -722,26 +724,26 @@ namespace WindowsFormsApplication1
                         new MySqlCommand("update albionprogram.playerattribute set attr_aoeheal = '-' where attr_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
                     }
 
-                    new MySqlCommand("update albionprogram.playerattribute set attr_waffe ='" + equip_weaponName.SelectedItem.ToString() + " ( t" + equip_weaponLvl.SelectedItem.ToString() + " )' where attr_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.playerattribute set attr_offhand ='" + equip_offHandName.SelectedItem.ToString() + " ( t" + equip_offHandLvl.SelectedItem.ToString() + " )' where attr_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.playerattribute set attr_kopf ='" + equip_headName.SelectedItem.ToString() + " ( t" + equip_headLvl.SelectedItem.ToString() + " )' where attr_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.playerattribute set attr_brust ='" + equip_chestName.SelectedItem.ToString() + " ( t" + equip_chestLvl.SelectedItem.ToString() + " )' where attr_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.playerattribute set attr_fuss ='" + equip_shoesName.SelectedItem.ToString() + " ( t" + equip_shoesLvl.SelectedItem.ToString() + " )' where attr_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.playerattribute set attr_waffe ='" + equip_weaponName.SelectedItem.ToString() + " t" + equip_weaponLvl.SelectedItem.ToString() + "' where attr_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.playerattribute set attr_offhand ='" + equip_offHandName.SelectedItem.ToString() + " t" + equip_offHandLvl.SelectedItem.ToString() + "' where attr_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.playerattribute set attr_kopf ='" + equip_headName.SelectedItem.ToString() + " t" + equip_headLvl.SelectedItem.ToString() + "' where attr_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.playerattribute set attr_brust ='" + equip_chestName.SelectedItem.ToString() + " t" + equip_chestLvl.SelectedItem.ToString() + "' where attr_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.playerattribute set attr_fuss ='" + equip_shoesName.SelectedItem.ToString() + " t" + equip_shoesLvl.SelectedItem.ToString() + "' where attr_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
 
                     break;
                 //Crafting Rüstung
                 case 2:
-                    new MySqlCommand("update albionprogram.craftingarmor set plattekopf ='" + craft_PlateHeadName.SelectedItem.ToString() + " ( t" + craft_PlateHeadLvl.SelectedItem.ToString() + " )' where craftarmor_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.craftingarmor set plattebrust ='" + craft_PlateChestName.SelectedItem.ToString() + " ( t" + craft_PlateChestLvl.SelectedItem.ToString() + " )' where craftarmor_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.craftingarmor set plattestiefel ='" + craft_PlateShoesName.SelectedItem.ToString() + " ( t" + craft_PlateShoesLvl.SelectedItem.ToString() + " )' where craftarmor_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.craftingarmor set plattekopf ='" + craft_PlateHeadName.SelectedItem.ToString() + " t" + craft_PlateHeadLvl.SelectedItem.ToString() + "' where craftarmor_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.craftingarmor set plattebrust ='" + craft_PlateChestName.SelectedItem.ToString() + " t" + craft_PlateChestLvl.SelectedItem.ToString() + "' where craftarmor_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.craftingarmor set plattestiefel ='" + craft_PlateShoesName.SelectedItem.ToString() + " t" + craft_PlateShoesLvl.SelectedItem.ToString() + "' where craftarmor_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
 
-                    new MySqlCommand("update albionprogram.craftingarmor set lederkopf ='" + craft_LeatherHeadName.SelectedItem.ToString() + " ( t" + craft_LeatherHeadLvl.SelectedItem.ToString() + " )' where craftarmor_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.craftingarmor set lederbrust ='" + craft_LeatherChestName.SelectedItem.ToString() + " ( t" + craft_LeatherChestLvl.SelectedItem.ToString() + " )' where craftarmor_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.craftingarmor set lederstiefel ='" + craft_LeatherShoesName.SelectedItem.ToString() + " ( t" + craft_LeatherShoesLvl.SelectedItem.ToString() + " )' where craftarmor_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.craftingarmor set lederkopf ='" + craft_LeatherHeadName.SelectedItem.ToString() + " t" + craft_LeatherHeadLvl.SelectedItem.ToString() + "' where craftarmor_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.craftingarmor set lederbrust ='" + craft_LeatherChestName.SelectedItem.ToString() + " t" + craft_LeatherChestLvl.SelectedItem.ToString() + "' where craftarmor_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.craftingarmor set lederstiefel ='" + craft_LeatherShoesName.SelectedItem.ToString() + " t" + craft_LeatherShoesLvl.SelectedItem.ToString() + "' where craftarmor_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
 
-                    new MySqlCommand("update albionprogram.craftingarmor set stoffkopf ='" + craft_ClothHeadName.SelectedItem.ToString() + " ( t" + craft_ClothHeadLvl.SelectedItem.ToString() + " )' where craftarmor_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.craftingarmor set stoffbrust ='" + craft_ClothChestName.SelectedItem.ToString() + " ( t" + craft_ClothChestLvl.SelectedItem.ToString() + " )' where craftarmor_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.craftingarmor set stoffstiefel ='" + craft_ClothShoesName.SelectedItem.ToString() + " ( t" + craft_ClothShoesLvl.SelectedItem.ToString() + " )' where craftarmor_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.craftingarmor set stoffkopf ='" + craft_ClothHeadName.SelectedItem.ToString() + " t" + craft_ClothHeadLvl.SelectedItem.ToString() + "' where craftarmor_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.craftingarmor set stoffbrust ='" + craft_ClothChestName.SelectedItem.ToString() + " t" + craft_ClothChestLvl.SelectedItem.ToString() + "' where craftarmor_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.craftingarmor set stoffstiefel ='" + craft_ClothShoesName.SelectedItem.ToString() + " t" + craft_ClothShoesLvl.SelectedItem.ToString() + "' where craftarmor_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
 
                     break;
                 //Crafting Kriegerwaffen
@@ -849,7 +851,7 @@ namespace WindowsFormsApplication1
                     break;
                 //Alchemist
                 case 7:
-                    new MySqlCommand("update albionprogram.playerfarming set kraeuterarztstufe ='" + alchi_Lvl.SelectedItem.ToString() + "' where farm_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.playerfarming set alchimiststufe ='" + alchi_Lvl.SelectedItem.ToString() + "' where farm_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
                     new MySqlCommand("update albionprogram.playerfarming set schmuggler ='" + alchi_schmugglerLvl.SelectedItem.ToString() + "' where farm_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
                     new MySqlCommand("update albionprogram.playerfarming set reinigungsbrauer ='" + alchi_reinigungsbrauerLvl.SelectedItem.ToString() + "' where farm_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
                     new MySqlCommand("update albionprogram.playerfarming set abklingzeitbrauer ='" + alchi_AbklingzeitbrauerLvl.SelectedItem.ToString() + "' where farm_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
@@ -862,6 +864,7 @@ namespace WindowsFormsApplication1
                     break;
                 //Koch
                 case 8:
+                    new MySqlCommand("update albionprogram.playerfarming set kochstufe ='" + koch_Lvl.SelectedItem.ToString() + "' where farm_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
                     new MySqlCommand("update albionprogram.playerfarming set metzgerei ='" + cook_MetzgereiLvl.SelectedItem.ToString() + "' where farm_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
                     new MySqlCommand("update albionprogram.playerfarming set mueller ='" + cook_MuellerLvl.SelectedItem.ToString() + "' where farm_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
                     new MySqlCommand("update albionprogram.playerfarming set sandwichkoch ='" + cook_SandwichkochLvl.SelectedItem.ToString() + "' where farm_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
@@ -874,9 +877,9 @@ namespace WindowsFormsApplication1
                     break;
                 //Nutz- & Reittiere
                 case 9:
-                    new MySqlCommand("update albionprogram.playerfarming set ernterstufe ='" + animal_ErnterLvl.SelectedItem.ToString() + "' where farm_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.playerfarming set hirtestufe ='" + animal_HirteLvl.SelectedItem.ToString() + "' where farm_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
-                    new MySqlCommand("update albionprogram.playerfarming set reitierausbilderstufe ='" + animal_ReittierLvl.SelectedItem.ToString() + "' where farm_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.playerfarming set kraeuterarztstufe ='" + kraut_ErnterLvl.SelectedItem.ToString() + "' where farm_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.playerfarming set nutzpflanzenbauer ='" + nutzpflanzenbauerLvl.SelectedItem.ToString() + "' where farm_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
+                    new MySqlCommand("update albionprogram.playerfarming set hirte ='" + hirteLvl.SelectedItem.ToString() + "' where farm_playername ='" + globalVariable.name + "';", connectDB).ExecuteNonQuery();
                     break;
             }
         }
@@ -1125,7 +1128,7 @@ namespace WindowsFormsApplication1
 
             #region alchimist
 
-            string cbkraeuterarztstufeStatement = "select kraeuterarztstufe from albionprogram.playerfarming where farm_playername ='" + globalVariable.name + "';";
+            string cbkraeuterarztstufeStatement = "select alchimiststufe from albionprogram.playerfarming where farm_playername ='" + globalVariable.name + "';";
             string cbschmugglerStatement = "select schmuggler from albionprogram.playerfarming where farm_playername ='" + globalVariable.name + "';";
             string cbreinigungsbrauerStatement = "select reinigungsbrauer from albionprogram.playerfarming where farm_playername ='" + globalVariable.name + "';";
             string cbabklingzeitbrauerStatement = "select abklingzeitbrauer from albionprogram.playerfarming where farm_playername ='" + globalVariable.name + "';";
@@ -1150,22 +1153,100 @@ namespace WindowsFormsApplication1
             #region koch
 
             string cbkochstufeStatement = "select kochstufe from albionprogram.playerfarming where farm_playername ='" + globalVariable.name + "';";
-            string cbmetzgereiStatement = "select kochstufe from albionprogram.playerfarming where farm_playername ='" + globalVariable.name + "';";
-            string cbsandwichkochStatement = "select kochstufe from albionprogram.playerfarming where farm_playername ='" + globalVariable.name + "';";
-            string cbeintopfkochStatement = "select kochstufe from albionprogram.playerfarming where farm_playername ='" + globalVariable.name + "';";
-            string cbpastetenkochStatement = "select kochstufe from albionprogram.playerfarming where farm_playername ='" + globalVariable.name + "';";
-            string cbomelettkochStatement = "select kochstufe from albionprogram.playerfarming where farm_playername ='" + globalVariable.name + "';";
-            string cbsalatkochStatement = "select kochstufe from albionprogram.playerfarming where farm_playername ='" + globalVariable.name + "';";
-            string cbsuppenkochStatement = "select kochstufe from albionprogram.playerfarming where farm_playername ='" + globalVariable.name + "';";
-            string cbernterstufeStatement = "select kochstufe from albionprogram.playerfarming where farm_playername ='" + globalVariable.name + "';";
-            string cbkochstufeStatement = "select kochstufe from albionprogram.playerfarming where farm_playername ='" + globalVariable.name + "';";
-            string cbkochstufeStatement = "select kochstufe from albionprogram.playerfarming where farm_playername ='" + globalVariable.name + "';";
-            string cbkochstufeStatement = "select kochstufe from albionprogram.playerfarming where farm_playername ='" + globalVariable.name + "';";
+            string cbmetzgereiStatement = "select metzgerei from albionprogram.playerfarming where farm_playername ='" + globalVariable.name + "';";
+            string cbmuellerStatement = "select mueller from albionprogram.playerfarming where farm_playername ='" + globalVariable.name + "';";
+            string cbsandwichkochStatement = "select sandwichkoch from albionprogram.playerfarming where farm_playername ='" + globalVariable.name + "';";
+            string cbeintopfkochStatement = "select eintopfkoch from albionprogram.playerfarming where farm_playername ='" + globalVariable.name + "';";
+            string cbpastetenkochStatement = "select pastetenkoch from albionprogram.playerfarming where farm_playername ='" + globalVariable.name + "';";
+            string cbomelettkochStatement = "select omelettkoch from albionprogram.playerfarming where farm_playername ='" + globalVariable.name + "';";
+            string cbsalatkochStatement = "select salatkoch from albionprogram.playerfarming where farm_playername ='" + globalVariable.name + "';";
+            string cbsuppenkochStatement = "select suppenkoch from albionprogram.playerfarming where farm_playername ='" + globalVariable.name + "';";
+            
 
             MySqlCommand cBKochstufeCommand = new MySqlCommand(cbkochstufeStatement, connectDB);
+            MySqlCommand cBMetzgereiCommand = new MySqlCommand(cbmetzgereiStatement, connectDB);
+            MySqlCommand cBMuellerCommand = new MySqlCommand(cbmuellerStatement, connectDB);
+            MySqlCommand cBSandwichkochCommand = new MySqlCommand(cbsandwichkochStatement, connectDB);
+            MySqlCommand cBEintopfkochCommand = new MySqlCommand(cbeintopfkochStatement, connectDB);
+            MySqlCommand cBPastetenkochCommand = new MySqlCommand(cbpastetenkochStatement, connectDB);
+            MySqlCommand cBOmelettkochCommand = new MySqlCommand(cbomelettkochStatement, connectDB);
+            MySqlCommand cBSalatkochCommand = new MySqlCommand(cbsalatkochStatement, connectDB);
+            MySqlCommand cBSuppenkochCommand = new MySqlCommand(cbsuppenkochStatement, connectDB);
+            
+            #endregion
+
+            #region ernter
+            string cbernterstufeStatement = "select kraeuterarztstufe from albionprogram.playerfarming where farm_playername ='" + globalVariable.name + "';";
+            string cbnutzpflanzenStatement = "select nutzpflanzenbauer from albionprogram.playerfarming where farm_playername ='" + globalVariable.name + "';";
+            string cbhirteStatement = "select hirte from albionprogram.playerfarming where farm_playername ='" + globalVariable.name + "';";
+
+            MySqlCommand cBErnterstufeCommand = new MySqlCommand(cbernterstufeStatement, connectDB);
+            MySqlCommand cBNutzpflanzenCommand = new MySqlCommand(cbnutzpflanzenStatement, connectDB);
+            MySqlCommand cBHirteCommand = new MySqlCommand(cbhirteStatement, connectDB);
+            #endregion
+
+            #region equipment
+
+            string cbWeaponStatement = "select attr_waffe from albionprogram.playerattribute where attr_playername ='" + globalVariable.name + "';";
+            string cbOffhandStatement = "select attr_offhand from albionprogram.playerattribute where attr_playername ='" + globalVariable.name + "';";
+            string cbHeadStatement = "select attr_kopf from albionprogram.playerattribute where attr_playername ='" + globalVariable.name + "';";
+            string cbChestStatement = "select attr_brust from albionprogram.playerattribute where attr_playername ='" + globalVariable.name + "';";
+            string cbShoesStatement = "select attr_fuss from albionprogram.playerattribute where attr_playername ='" + globalVariable.name + "';";
+            
+            MySqlCommand cBWeaponCommand = new MySqlCommand(cbWeaponStatement, connectDB);
+            MySqlCommand cBOffhandCommand = new MySqlCommand(cbOffhandStatement, connectDB);
+            MySqlCommand cBHeadCommand = new MySqlCommand(cbHeadStatement, connectDB);
+            MySqlCommand cBChestCommand = new MySqlCommand(cbChestStatement, connectDB);
+            MySqlCommand cBShoesCommand = new MySqlCommand(cbShoesStatement, connectDB);
+
+            string cbTankStatement = "select attr_tank from albionprogram.playerattribute where attr_playername ='" + globalVariable.name + "';";
+            string cbSingleMeleeStatement = "select attr_ddsinglemelee from albionprogram.playerattribute where attr_playername ='" + globalVariable.name + "';";
+            string cbSingleRangeStatement = "select attr_ddsinglerange from albionprogram.playerattribute where attr_playername ='" + globalVariable.name + "';";
+            string cbSingleHealStatement = "select attr_singleheal from albionprogram.playerattribute where attr_playername ='" + globalVariable.name + "';";
+            string cbAoEMeleeStatement = "select attr_ddaoemelee from albionprogram.playerattribute where attr_playername ='" + globalVariable.name + "';";
+            string cbAoERangeStatement = "select attr_ddaorrange from albionprogram.playerattribute where attr_playername ='" + globalVariable.name + "';";
+            string cbAoEHealStatement = "select attr_aoeheal from albionprogram.playerattribute where attr_playername ='" + globalVariable.name + "';";
+            string cbSupportStatement = "select attr_support from albionprogram.playerattribute where attr_playername ='" + globalVariable.name + "';";
+
+            MySqlCommand cBTankCommand = new MySqlCommand(cbTankStatement, connectDB);
+            MySqlCommand cBSingleMeleeCommand = new MySqlCommand(cbSingleMeleeStatement, connectDB);
+            MySqlCommand cBSingleRangeCommand = new MySqlCommand(cbSingleRangeStatement, connectDB);
+            MySqlCommand cBSingleHealCommand = new MySqlCommand(cbSingleHealStatement, connectDB);
+            MySqlCommand cBAoEMeleeCommand = new MySqlCommand(cbAoEMeleeStatement, connectDB);
+            MySqlCommand cBAoERangeCommand = new MySqlCommand(cbAoERangeStatement, connectDB);
+            MySqlCommand cBAoEHealCommand = new MySqlCommand(cbAoEHealStatement, connectDB);
+            MySqlCommand cBSupportCommand = new MySqlCommand(cbSupportStatement, connectDB);
+
 
             #endregion
 
+            #region Crafting_Armor
+
+            string cbplateheadStatement = "select plattekopf from albionprogram.craftingarmor where craftarmor_playername ='" + globalVariable.name + "';";
+            string cbplatechestStatement = "select plattebrust from albionprogram.craftingarmor where craftarmor_playername ='" + globalVariable.name + "';";
+            string cbplateshoestatement = "select plattestiefel from albionprogram.craftingarmor where craftarmor_playername ='" + globalVariable.name + "';";
+
+            string cbleadherheadStatement = "select lederkopf from albionprogram.craftingarmor where craftarmor_playername ='" + globalVariable.name + "';";
+            string cbleadherchestStatement = "select lederbrust from albionprogram.craftingarmor where craftarmor_playername ='" + globalVariable.name + "';";
+            string cbleadhershoesStatement = "select lederstiefel from albionprogram.craftingarmor where craftarmor_playername ='" + globalVariable.name + "';";
+
+            string cbclothheadStatement = "select stoffkopf from albionprogram.craftingarmor where craftarmor_playername ='" + globalVariable.name + "';";
+            string cbclothchestStatement = "select stoffbrust from albionprogram.craftingarmor where craftarmor_playername ='" + globalVariable.name + "';";
+            string cbclothshoesStatement = "select stoffstiefel from albionprogram.craftingarmor where craftarmor_playername ='" + globalVariable.name + "';";
+
+            MySqlCommand cBPlateHeadCommand = new MySqlCommand(cbplateheadStatement, connectDB);
+            MySqlCommand cBPlateChestCommand = new MySqlCommand(cbplatechestStatement, connectDB);
+            MySqlCommand cBPlateShoesCommand = new MySqlCommand(cbplateshoestatement, connectDB);
+
+            MySqlCommand cBLeadherHeadCommand = new MySqlCommand(cbleadherheadStatement, connectDB);
+            MySqlCommand cBLeadherChestCommand = new MySqlCommand(cbleadherchestStatement, connectDB);
+            MySqlCommand cBLeadherShoesCommand = new MySqlCommand(cbleadhershoesStatement, connectDB);
+
+            MySqlCommand cBClothHeadCommand = new MySqlCommand(cbclothheadStatement, connectDB);
+            MySqlCommand cBClothChestCommand = new MySqlCommand(cbclothchestStatement, connectDB);
+            MySqlCommand cBClothShoesCommand = new MySqlCommand(cbclothshoesStatement, connectDB);
+
+            #endregion
             connectDB.Open();
             try 
             {
@@ -1189,9 +1270,83 @@ namespace WindowsFormsApplication1
 
                         break;
                     case 1:
+                        String[] resultWeapon = cBWeaponCommand.ExecuteScalar().ToString().Split(new char[] {' '});
+                        equip_weaponName.SelectedItem = resultWeapon[0];
+                        equip_weaponLvl.SelectedIndex = Convert.ToInt32(resultWeapon[1].TrimStart(new char[] { 't' }));
+
+                        String[] resultOffhand = cBOffhandCommand.ExecuteScalar().ToString().Split(new char[] { ' ' });
+                        equip_offHandName.SelectedItem = resultOffhand[0];
+                        equip_offHandLvl.SelectedIndex = Convert.ToInt32(resultOffhand[1].TrimStart(new char[] { 't' }));
+
+                        String[] resultHead = cBHeadCommand.ExecuteScalar().ToString().Split(new char[] { ' ' });
+                        equip_headName.SelectedItem = resultHead[0];
+                        equip_headLvl.SelectedIndex = Convert.ToInt32(resultHead[1].TrimStart(new char[] { 't' }));
+
+                        String[] resultChest = cBChestCommand.ExecuteScalar().ToString().Split(new char[] { ' ' });
+                        equip_chestName.SelectedItem = resultChest[0];
+                        equip_chestLvl.SelectedIndex = Convert.ToInt32(resultChest[1].TrimStart(new char[] { 't' }));
+
+                        String[] resultShoes = cBShoesCommand.ExecuteScalar().ToString().Split(new char[] { ' ' });
+                        equip_shoesName.SelectedItem = resultShoes[0];
+                        equip_shoesLvl.SelectedIndex = Convert.ToInt32(resultShoes[1].TrimStart(new char[] { 't' }));
+
+                        if (cBTankCommand.ExecuteScalar().ToString().Equals("X"))
+                            cB_Tank.Checked = true;
+                        if (cBSingleMeleeCommand.ExecuteScalar().ToString().Equals("X"))
+                            cB_DD_Single_Melee.Checked = true;
+                        if (cBSingleRangeCommand.ExecuteScalar().ToString().Equals("X"))
+                            cB_DD_Single_Range.Checked = true;
+                        if (cBSingleHealCommand.ExecuteScalar().ToString().Equals("X"))
+                            cB_single_Healer.Checked = true;
+                        if (cBAoEMeleeCommand.ExecuteScalar().ToString().Equals("X"))
+                            cB_DD_AoE_Melee.Checked = true;
+                        if (cBAoERangeCommand.ExecuteScalar().ToString().Equals("X"))
+                            cB_DD_AoE_Range.Checked = true;
+                        if (cBAoEHealCommand.ExecuteScalar().ToString().Equals("X"))
+                            cB_AoE_Healer.Checked = true;
+                        if (cBSupportCommand.ExecuteScalar().ToString().Equals("X"))
+                            cB_Support.Checked = true;
 
                         break;
                     case 2:
+
+                        String[] resultplatehead = cBPlateHeadCommand.ExecuteScalar().ToString().Split(new char[] {' '});
+                        craft_PlateHeadName.SelectedItem = resultplatehead[0];
+                        craft_PlateHeadLvl.SelectedIndex = Convert.ToInt32(resultplatehead[1].TrimStart(new char[] { 't' }));
+
+                        String[] resultplatechest = cBPlateChestCommand.ExecuteScalar().ToString().Split(new char[] {' '});
+                        craft_PlateChestName.SelectedItem = resultplatechest[0];
+                        craft_PlateChestLvl.SelectedIndex = Convert.ToInt32(resultplatechest[1].TrimStart(new char[] { 't' }));
+
+                        String[] resultplateshoes = cBPlateShoesCommand.ExecuteScalar().ToString().Split(new char[] {' '});
+                        craft_PlateShoesName.SelectedItem = resultplateshoes[0];
+                        craft_PlateShoesLvl.SelectedIndex = Convert.ToInt32(resultplateshoes[1].TrimStart(new char[] { 't' }));
+
+
+                        String[] resultleadherhead = cBLeadherHeadCommand.ExecuteScalar().ToString().Split(new char[] {' '});
+                        craft_LeatherHeadName.SelectedItem = resultleadherhead[0];
+                        craft_LeatherHeadLvl.SelectedIndex = Convert.ToInt32(resultleadherhead[1].TrimStart(new char[] { 't' }));
+
+                        String[] resultleadherchest = cBLeadherChestCommand.ExecuteScalar().ToString().Split(new char[] { ' ' });
+                        craft_LeatherChestName.SelectedItem = resultleadherchest[0];
+                        craft_LeatherChestLvl.SelectedIndex = Convert.ToInt32(resultleadherchest[1].TrimStart(new char[] { 't' }));
+
+                        String[] resultleadhershoes = cBLeadherShoesCommand.ExecuteScalar().ToString().Split(new char[] { ' ' });
+                        craft_LeatherShoesName.SelectedItem = resultleadhershoes[0];
+                        craft_LeatherShoesLvl.SelectedIndex = Convert.ToInt32(resultleadhershoes[1].TrimStart(new char[] { 't' }));
+
+
+                        String[] resultclothhead = cBClothHeadCommand.ExecuteScalar().ToString().Split(new char[] {' '});
+                        craft_ClothHeadName.SelectedItem = resultclothhead[0];
+                        craft_ClothHeadLvl.SelectedIndex = Convert.ToInt32(resultclothhead[1].TrimStart(new char[] { 't' }));
+
+                        String[] resultclothchest = cBClothChestCommand.ExecuteScalar().ToString().Split(new char[] {' '});
+                        craft_ClothChestName.SelectedItem = resultclothchest[0];
+                        craft_ClothChestLvl.SelectedIndex = Convert.ToInt32(resultclothchest[1].TrimStart(new char[] { 't' }));
+
+                        String[] resultclothshoes = cBClothShoesCommand.ExecuteScalar().ToString().Split(new char[] {' '});
+                        craft_ClothShoesName.SelectedItem = resultclothshoes[0];
+                        craft_ClothShoesLvl.SelectedIndex = Convert.ToInt32(resultclothshoes[1].TrimStart(new char[] { 't' }));
 
                         break;
                     case 3:
@@ -1310,9 +1465,21 @@ namespace WindowsFormsApplication1
                         break;
                     case 8:
 
+                        koch_Lvl.SelectedIndex = Convert.ToInt32(cBKochstufeCommand.ExecuteScalar().ToString());
+                        cook_MetzgereiLvl.SelectedIndex = Convert.ToInt32(cBMetzgereiCommand.ExecuteScalar().ToString());
+                        cook_MuellerLvl.SelectedIndex = Convert.ToInt32(cBMuellerCommand.ExecuteScalar().ToString());
+                        cook_SandwichkochLvl.SelectedIndex = Convert.ToInt32(cBSandwichkochCommand.ExecuteScalar().ToString());
+                        cook_EintopfkochLvl.SelectedIndex = Convert.ToInt32(cBEintopfkochCommand.ExecuteScalar().ToString());
+                        cook_PastetenkochLvl.SelectedIndex = Convert.ToInt32(cBPastetenkochCommand.ExecuteScalar().ToString());
+                        cook_OmelettKochLvl.SelectedIndex = Convert.ToInt32(cBOmelettkochCommand.ExecuteScalar().ToString());
+                        cook_SalatkochLvl.SelectedIndex = Convert.ToInt32(cBSalatkochCommand.ExecuteScalar().ToString());
+                        cook_SuppenkochLvl.SelectedIndex = Convert.ToInt32(cBSuppenkochCommand.ExecuteScalar().ToString());
+                        
                         break;
                     case 9:
-
+                        kraut_ErnterLvl.SelectedIndex = Convert.ToInt32(cBErnterstufeCommand.ExecuteScalar().ToString());
+                        nutzpflanzenbauerLvl.SelectedIndex = Convert.ToInt32(cBNutzpflanzenCommand.ExecuteScalar().ToString());
+                        hirteLvl.SelectedIndex = Convert.ToInt32(cBHirteCommand.ExecuteScalar().ToString());
                         break;
                     default:
                         break;

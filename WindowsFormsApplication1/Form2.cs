@@ -120,7 +120,14 @@ namespace WindowsFormsApplication1
             MySqlCommand countPlayer = new MySqlCommand(cntPlayer, connectDB);
 
             string cntTank = "select attrib_count from albionprogram.arsenal where attrib_value = 'attr_tank';";
-
+            string cntSingleMelee = "select attrib_count from albionprogram.arsenal where attrib_value = 'attr_ddsinglemelee';";
+            string cntSingleRange = "select attrib_count from albionprogram.arsenal where attrib_value = 'attr_ddsinglerange';";
+            string cntSingleHeal = "select attrib_count from albionprogram.arsenal where attrib_value = 'attr_singleheal';";
+            string cntAoEMelee = "select attrib_count from albionprogram.arsenal where attrib_value = 'attr_ddaoemelee';";
+            string cntAoERange = "select attrib_count from albionprogram.arsenal where attrib_value = 'attr_ddaorrange';";
+            string cntAoEHeal = "select attrib_count from albionprogram.arsenal where attrib_value = 'attr_aoeheal';";
+            string cntSupport = "select attrib_count from albionprogram.arsenal where attrib_value = 'attr_support';";
+            /*
             //string cntTank = "select count(*) from albionprogram.playerattribute where attr_tank = 'X';";
             string cntSingleMelee = "select count(*) from albionprogram.playerattribute where attr_ddsinglemelee = 'X';";
             string cntSingleRange = "select count(*) from albionprogram.playerattribute where attr_ddsinglerange = 'X';";
@@ -129,7 +136,7 @@ namespace WindowsFormsApplication1
             string cntAoERange = "select count(*) from albionprogram.playerattribute where attr_ddaorrange = 'X';";
             string cntAoEHeal = "select count(*) from albionprogram.playerattribute where attr_aoeheal = 'X';";
             string cntSupport = "select count(*) from albionprogram.playerattribute where attr_support = 'X';";
-
+            */
             MySqlCommand countTank = new MySqlCommand(cntTank, connectDB);
             MySqlCommand countSingleMelee = new MySqlCommand(cntSingleMelee, connectDB);
             MySqlCommand countSingleRange = new MySqlCommand(cntSingleRange, connectDB);
@@ -139,6 +146,19 @@ namespace WindowsFormsApplication1
             MySqlCommand countAoEHeal = new MySqlCommand(cntAoEHeal, connectDB);
             MySqlCommand countSupport = new MySqlCommand(cntSupport, connectDB);
 
+            string cntErz = "select attrib_count from albionprogram.arsenal where attrib_value = 'erz';";
+            string cntHolz = "select attrib_count from albionprogram.arsenal where attrib_value = 'holz';";
+            string cntWolle = "select attrib_count from albionprogram.arsenal where attrib_value = 'wolle';";
+            string cntFell = "select attrib_count from albionprogram.arsenal where attrib_value = 'fell';";
+            string cntStein = "select attrib_count from albionprogram.arsenal where attrib_value = 'stein';";
+
+            string cntMetall = "select attrib_count from albionprogram.arsenal where attrib_value = 'metall';";
+            string cntPlanke = "select attrib_count from albionprogram.arsenal where attrib_value = 'planke';";
+            string cntStoff = "select attrib_count from albionprogram.arsenal where attrib_value = 'stoff';";
+            string cntLeder = "select attrib_count from albionprogram.arsenal where attrib_value = 'leder';";
+            string cntSteinblock = "select attrib_count from albionprogram.arsenal where attrib_value = 'steinblock';";
+
+            /*
             string cntErz = "select count(*) from albionprogram.playergathering where erz > 4;";
             string cntHolz = "select count(*) from albionprogram.playergathering where holz > 4;";
             string cntWolle = "select count(*) from albionprogram.playergathering where wolle > 4;";
@@ -150,7 +170,7 @@ namespace WindowsFormsApplication1
             string cntStoff = "select count(*) from albionprogram.playergathering where stoff > 4;";
             string cntLeder = "select count(*) from albionprogram.playergathering where leder > 4;";
             string cntSteinblock = "select count(*) from albionprogram.playergathering where steinblock > 4;";
-
+            */
             MySqlCommand countErz = new MySqlCommand(cntErz, connectDB);
             MySqlCommand countHolz = new MySqlCommand(cntHolz, connectDB);
             MySqlCommand countWolle = new MySqlCommand(cntWolle, connectDB);
@@ -166,6 +186,11 @@ namespace WindowsFormsApplication1
             try
             {
                 connectDB.Open();
+
+                toolStripStatusLabel2.Text = "Angemeldet als " + globalVariable.name;
+                toolStripStatusLabel1.Text = "Verbunden";
+                toolStripStatusLabel1.BackColor = Color.LightGreen;
+                
                 //Mitglieder
                 string resultPlayer = countPlayer.ExecuteScalar().ToString();
 
@@ -225,10 +250,12 @@ namespace WindowsFormsApplication1
             }
             catch (Exception exc)
             {
-                toolStripStatusLabel2.Text = "";
-                toolStripStatusLabel1.Text = "nicht Verbunden";
+                
+                //toolStripStatusLabel2.Text = "";
+                toolStripStatusLabel1.Text = "Informationsfenster fehlerhaft";
                 toolStripStatusLabel1.BackColor = Color.LightCoral;
-                MessageBox.Show(" " + exc);
+                //MessageBox.Show("" + exc);
+                
             }
 
             if(connectDB != null)
@@ -323,5 +350,13 @@ namespace WindowsFormsApplication1
             }
             
         }
+
+        private void onlineStatusToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ServerStatusForm ServForm = new ServerStatusForm();
+            ServForm.Show();
+
+        }
+
     }
 }

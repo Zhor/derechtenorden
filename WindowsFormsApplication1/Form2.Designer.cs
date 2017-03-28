@@ -48,6 +48,8 @@
             this.craftingRüstungToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.craftingWerkzeugToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.landwirtschaftToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.extrasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.onlineStatusToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hilfeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -108,6 +110,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dateiToolStripMenuItem,
             this.ansichtToolStripMenuItem,
+            this.extrasToolStripMenuItem,
             this.hilfeToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -232,6 +235,21 @@
             this.landwirtschaftToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.landwirtschaftToolStripMenuItem.Text = "Landwirtschaft";
             this.landwirtschaftToolStripMenuItem.Click += new System.EventHandler(this.landwirtschaftToolStripMenuItem_Click);
+            // 
+            // extrasToolStripMenuItem
+            // 
+            this.extrasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.onlineStatusToolStripMenuItem});
+            this.extrasToolStripMenuItem.Name = "extrasToolStripMenuItem";
+            this.extrasToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
+            this.extrasToolStripMenuItem.Text = "Extras";
+            // 
+            // onlineStatusToolStripMenuItem
+            // 
+            this.onlineStatusToolStripMenuItem.Name = "onlineStatusToolStripMenuItem";
+            this.onlineStatusToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.onlineStatusToolStripMenuItem.Text = "ServerStatus";
+            this.onlineStatusToolStripMenuItem.Click += new System.EventHandler(this.onlineStatusToolStripMenuItem_Click);
             // 
             // hilfeToolStripMenuItem
             // 
@@ -499,7 +517,7 @@
             // 
             // timer1
             // 
-            this.timer1.Interval = 10000;
+            this.timer1.Interval = 61000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form2
@@ -577,6 +595,8 @@
         private System.Windows.Forms.ToolStripMenuItem kriegerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem jägerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem magierToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem extrasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem onlineStatusToolStripMenuItem;
 
     }
 }
